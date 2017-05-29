@@ -16,8 +16,8 @@ public protocol ImageViewerDataSource {
 public class ImageViewer: UIPageViewController {
 	@IBOutlet fileprivate var shareBarButton: UIBarButtonItem!
 	
-	var imageDataSource: ImageViewerDataSource!
-	var initialIndex = 0
+	public var imageDataSource: ImageViewerDataSource!
+	public var initialIndex = 0
 	
 	fileprivate var currentViewController: ImageViewerItemViewController?
 }
