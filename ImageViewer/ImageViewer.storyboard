@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8bg-Uz-G68">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Viewer-->
+        <scene sceneID="5lW-Jo-txT">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewer" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4Ux-Qu-Pra">
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="done" id="YOB-Ua-Zin">
+                                <connections>
+                                    <action selector="doneBarButtonAction:" destination="xGX-Li-dGc" id="cOK-gb-1gi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="action" id="RhD-sE-XWU">
+                                <connections>
+                                    <action selector="shareBarButtonAction:" destination="xGX-Li-dGc" id="bMy-6v-ftT"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="shareBarButton" destination="RhD-sE-XWU" id="F1f-HM-xoY"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBb-bi-Rww" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="16"/>
+        </scene>
+        <!--Image Viewer Item View Controller-->
+        <scene sceneID="g09-1N-qL0">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewerItem" automaticallyAdjustsScrollViewInsets="NO" id="rJS-eg-LHd" customClass="ImageViewerItemViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qEX-9E-LIn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lsc-SA-W5V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="15q-KN-xDa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-Ci-pUd">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-y3-tg4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyE-iU-lGf">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="hyE-iU-lGf" firstAttribute="leading" secondItem="iRr-y3-tg4" secondAttribute="leading" id="H69-Ts-MY7"/>
+                                    <constraint firstAttribute="trailing" secondItem="hyE-iU-lGf" secondAttribute="trailing" id="Wif-Kw-Veg"/>
+                                    <constraint firstAttribute="bottom" secondItem="hyE-iU-lGf" secondAttribute="bottom" id="dqb-ft-Z43"/>
+                                    <constraint firstItem="hyE-iU-lGf" firstAttribute="top" secondItem="iRr-y3-tg4" secondAttribute="top" id="vJE-2K-WJE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="rJS-eg-LHd" id="Nv2-Wo-WEf"/>
+                                    <outletCollection property="gestureRecognizers" destination="m5b-NQ-ISf" appends="YES" id="8sD-b1-GXD"/>
+                                    <outletCollection property="gestureRecognizers" destination="Qz4-a9-tEE" appends="YES" id="I7X-PW-nSW"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iRr-y3-tg4" secondAttribute="trailing" id="4st-98-UPl"/>
+                            <constraint firstItem="iRr-y3-tg4" firstAttribute="leading" secondItem="15q-KN-xDa" secondAttribute="leading" id="8lV-aZ-fHW"/>
+                            <constraint firstAttribute="bottom" secondItem="iRr-y3-tg4" secondAttribute="bottom" id="CdI-gQ-BGk"/>
+                            <constraint firstItem="H2P-Ci-pUd" firstAttribute="centerX" secondItem="15q-KN-xDa" secondAttribute="centerX" id="eQn-Jd-SzK"/>
+                            <constraint firstItem="H2P-Ci-pUd" firstAttribute="centerY" secondItem="15q-KN-xDa" secondAttribute="centerY" id="h7y-SW-9fw"/>
+                            <constraint firstItem="iRr-y3-tg4" firstAttribute="top" secondItem="15q-KN-xDa" secondAttribute="top" id="hLs-TR-Ls7"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="H2P-Ci-pUd" id="s02-03-9UZ"/>
+                        <outlet property="doubleTapGestureRecognizer" destination="Qz4-a9-tEE" id="Kwx-c6-iHH"/>
+                        <outlet property="imageView" destination="hyE-iU-lGf" id="Ics-ci-nTh"/>
+                        <outlet property="imageViewLeadingConstraint" destination="H69-Ts-MY7" id="3Ao-X9-B91"/>
+                        <outlet property="imageViewTopConstraint" destination="vJE-2K-WJE" id="wb3-31-iBi"/>
+                        <outlet property="scrollView" destination="iRr-y3-tg4" id="oqG-WI-UWo"/>
+                        <outlet property="tapGestureRecognizer" destination="m5b-NQ-ISf" id="r9K-9S-o57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYh-ef-j1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesBegan="YES" id="m5b-NQ-ISf">
+                    <connections>
+                        <action selector="tapGestureRecognizerAction:" destination="rJS-eg-LHd" id="BKu-Wh-6qM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Qz4-a9-tEE">
+                    <connections>
+                        <action selector="doubleTapGestureRecognizerAction:" destination="rJS-eg-LHd" id="OdN-Al-jnT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1471" y="16"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3ij-BY-5lu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bg-Uz-G68" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="P9S-g1-O0h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xGX-Li-dGc" kind="relationship" relationship="rootViewController" id="NuJ-qb-155"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NA6-ep-Sk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87.200000000000003" y="15.742128935532236"/>
+        </scene>
+    </scenes>
+</document>
