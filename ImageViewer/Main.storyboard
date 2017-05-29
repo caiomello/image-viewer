@@ -13,7 +13,7 @@
         <!--Image Viewer-->
         <scene sceneID="5lW-Jo-txT">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewer" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewer" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4Ux-Qu-Pra">
                         <rightBarButtonItems>
                             <barButtonItem style="done" systemItem="done" id="YOB-Ua-Zin">
@@ -39,7 +39,7 @@
         <!--Image Viewer Item View Controller-->
         <scene sceneID="g09-1N-qL0">
             <objects>
-                <viewController storyboardIdentifier="ImageViewerItem" automaticallyAdjustsScrollViewInsets="NO" id="rJS-eg-LHd" customClass="ImageViewerItemViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewerItem" automaticallyAdjustsScrollViewInsets="NO" id="rJS-eg-LHd" customClass="ImageViewerItemViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qEX-9E-LIn"/>
                         <viewControllerLayoutGuide type="bottom" id="Lsc-SA-W5V"/>
