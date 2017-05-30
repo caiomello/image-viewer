@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Image Viewer-->
+        <!--Image Viewer Page View Controller-->
         <scene sceneID="5lW-Jo-txT">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewer" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewerPageViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4Ux-Qu-Pra">
                         <rightBarButtonItems>
                             <barButtonItem style="done" systemItem="done" id="YOB-Ua-Zin">
@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1471" y="16"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Image Viewer-->
         <scene sceneID="3ij-BY-5lu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bg-Uz-G68" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bg-Uz-G68" customClass="ImageViewer" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="P9S-g1-O0h">

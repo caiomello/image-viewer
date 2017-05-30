@@ -13,6 +13,7 @@
 		25AD35E81EDCD3ED008654DB /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E41EDCD3ED008654DB /* ImageViewer.swift */; };
 		25AD35E91EDCD3ED008654DB /* ImageViewerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */; };
 		25AD35EA1EDCD3ED008654DB /* ImageViewerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */; };
+		25CEDB1F1EDDB2530015A377 /* ImageViewerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CEDB1E1EDDB2530015A377 /* ImageViewerPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		25AD35E41EDCD3ED008654DB /* ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 		25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerItem.swift; sourceTree = "<group>"; };
 		25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerItemViewController.swift; sourceTree = "<group>"; };
+		25CEDB1E1EDDB2530015A377 /* ImageViewerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */,
 				25AD35E41EDCD3ED008654DB /* ImageViewer.swift */,
+				25CEDB1E1EDDB2530015A377 /* ImageViewerPageViewController.swift */,
 				25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */,
 				25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */,
 				25AD35EB1EDCD481008654DB /* Resources */,
@@ -219,6 +222,7 @@
 				25AD35EA1EDCD3ED008654DB /* ImageViewerItemViewController.swift in Sources */,
 				25AD35E91EDCD3ED008654DB /* ImageViewerItem.swift in Sources */,
 				25AD35E81EDCD3ED008654DB /* ImageViewer.swift in Sources */,
+				25CEDB1F1EDDB2530015A377 /* ImageViewerPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
