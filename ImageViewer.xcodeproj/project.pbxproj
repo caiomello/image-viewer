@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		250718071EDCD3670058B2F2 /* ImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250717FD1EDCD3670058B2F2 /* ImageViewer.framework */; };
 		2507180C1EDCD3670058B2F2 /* ImageViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507180B1EDCD3670058B2F2 /* ImageViewerTests.swift */; };
-		25AD35E71EDCD3ED008654DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AD35E31EDCD3ED008654DB /* Main.storyboard */; };
+		25AD35E71EDCD3ED008654DB /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */; };
 		25AD35E81EDCD3ED008654DB /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E41EDCD3ED008654DB /* ImageViewer.swift */; };
 		25AD35E91EDCD3ED008654DB /* ImageViewerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */; };
 		25AD35EA1EDCD3ED008654DB /* ImageViewerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */; };
@@ -31,7 +31,7 @@
 		250718061EDCD3670058B2F2 /* ImageViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2507180B1EDCD3670058B2F2 /* ImageViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerTests.swift; sourceTree = "<group>"; };
 		2507180D1EDCD3670058B2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25AD35E31EDCD3ED008654DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		25AD35E41EDCD3ED008654DB /* ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 		25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerItem.swift; sourceTree = "<group>"; };
 		25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerItemViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		250717FF1EDCD3670058B2F2 /* ImageViewer */ = {
 			isa = PBXGroup;
 			children = (
-				25AD35E31EDCD3ED008654DB /* Main.storyboard */,
+				25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */,
 				25AD35E41EDCD3ED008654DB /* ImageViewer.swift */,
 				25AD35E61EDCD3ED008654DB /* ImageViewerItemViewController.swift */,
 				25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */,
@@ -198,7 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25AD35E71EDCD3ED008654DB /* Main.storyboard in Resources */,
+				25AD35E71EDCD3ED008654DB /* ImageViewer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,7 +78,7 @@ extension ImageViewer: ImageViewerItemViewControllerDelegate {
 
 extension ImageViewer {
 	fileprivate func imageViewerItemViewController(withIndex index: Int) -> ImageViewerItemViewController {
-		let itemViewController = UIStoryboard(name: "Main", bundle: Bundle(for: ImageViewer.self)).instantiateViewController(withIdentifier: "ImageViewerItem") as! ImageViewerItemViewController
+		let itemViewController = UIStoryboard(name: "ImageViewer", bundle: Bundle(for: ImageViewer.self)).instantiateViewController(withIdentifier: "ImageViewerItem") as! ImageViewerItemViewController
 		itemViewController.item = imageDataSource.imageViewer(self, itemAtIndex: index)
 		itemViewController.index = index
 		itemViewController.delegate = self
