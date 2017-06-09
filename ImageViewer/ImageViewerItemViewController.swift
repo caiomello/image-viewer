@@ -112,7 +112,7 @@ extension ImageViewerItemViewController {
 	
 	fileprivate func updateImageConstraints() {
 		let verticalOffset = max(0, (view.bounds.height - imageView.frame.height)/2)
-		imageViewTopConstraint.constant = verticalOffset
+		imageViewTopConstraint.constant = verticalOffset - scrollView.adjustedContentInset.top
 		
 		let horizontalOffset = max(0, (view.bounds.width - imageView.frame.width)/2)
 		imageViewLeadingConstraint.constant = horizontalOffset
