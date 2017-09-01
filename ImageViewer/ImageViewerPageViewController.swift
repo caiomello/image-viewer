@@ -28,6 +28,7 @@ extension ImageViewerPageViewController {
 		delegate = self
 		
 		setViewControllers([imageViewerItemViewController(withIndex: initialIndex)], direction: .forward, animated: false, completion: nil)
+		currentViewController = viewControllers?.first as? ImageViewerItemViewController
 	}
 }
 

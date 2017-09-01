@@ -14,8 +14,8 @@ public protocol ImageViewerDataSource {
 }
 
 public class ImageViewer: UINavigationController {
-	public var imageDataSource: ImageViewerDataSource!
-	public var initialIndex = 0
+	var imageDataSource: ImageViewerDataSource!
+	var initialIndex = 0
 	
 	public class func imageViewer(withDataSource dataSource: ImageViewerDataSource, initialIndex: Int) -> ImageViewer {
 		let storyboard = UIStoryboard(name: "ImageViewer", bundle: Bundle(for: ImageViewer.self))
