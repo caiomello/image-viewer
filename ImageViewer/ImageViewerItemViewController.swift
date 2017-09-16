@@ -15,10 +15,10 @@ protocol ImageViewerItemViewControllerDelegate {
 class ImageViewerItemViewController: UIViewController {
 	@IBOutlet fileprivate var activityIndicatorView: UIActivityIndicatorView!
 	@IBOutlet fileprivate var scrollView: UIScrollView!
-	@IBOutlet var imageView: UIImageView!
 	
-	@IBOutlet fileprivate var imageViewLeadingConstraint: NSLayoutConstraint!
-	@IBOutlet fileprivate var imageViewTopConstraint: NSLayoutConstraint!
+	var imageView: UIImageView!
+	fileprivate var imageViewLeadingConstraint: NSLayoutConstraint!
+	fileprivate var imageViewTopConstraint: NSLayoutConstraint!
 	
 	@IBOutlet fileprivate var tapGestureRecognizer: UITapGestureRecognizer!
 	@IBOutlet fileprivate var doubleTapGestureRecognizer: UITapGestureRecognizer!
@@ -34,6 +34,13 @@ extension ImageViewerItemViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		imageView = UIImageView()
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		scrollView.addSubview(imageView)
+		imageViewLeadingConstraint = NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: 0)
+		imageViewTopConstraint = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .top, multiplier: 1, constant: 0)
+		scrollView.addConstraints([imageViewLeadingConstraint, imageViewTopConstraint])
+		
 		tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
 		
 		if let image = item.image {
@@ -41,7 +48,7 @@ extension ImageViewerItemViewController {
 			delegate.imageViewerItemViewController(controller: self, didSetImage: image)
 			
 			updateImageConstraints()
-			updateZoomScale()
+			updateZoomScale(animated: false)
 			
 		} else {
 			activityIndicatorView.startAnimating()
@@ -53,7 +60,7 @@ extension ImageViewerItemViewController {
 				self.delegate.imageViewerItemViewController(controller: self, didSetImage: image)
 				
 				self.updateImageConstraints()
-				self.updateZoomScale()
+				self.updateZoomScale(animated: false)
 			})
 		}
 	}
@@ -62,14 +69,14 @@ extension ImageViewerItemViewController {
 		super.viewWillAppear(animated)
 		
 		updateImageConstraints()
-		updateZoomScale()
+		updateZoomScale(animated: true)
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		
 		updateImageConstraints()
-		updateZoomScale()
+		updateZoomScale(animated: false)
 		
 		// Force refresh zoom
 		let zoomScale = scrollView.zoomScale
@@ -80,7 +87,7 @@ extension ImageViewerItemViewController {
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		
-		scrollView.setZoomScale(scrollView.minimumZoomScale, animated: false)
+		updateZoomScale(animated: true)
 	}
 }
 
@@ -99,7 +106,7 @@ extension ImageViewerItemViewController: UIScrollViewDelegate {
 // MARK: - Helpers
 
 extension ImageViewerItemViewController {
-	fileprivate func updateZoomScale() {
+	fileprivate func updateZoomScale(animated: Bool) {
 		guard let image = imageView.image else { return }
 		
 		let widthScale = view.bounds.width/image.size.width
@@ -107,16 +114,17 @@ extension ImageViewerItemViewController {
 		let scale = min(widthScale, heightScale)
 		
 		scrollView.minimumZoomScale = scale
-		scrollView.zoomScale = scale
+		scrollView.setZoomScale(scale, animated: animated)
+		
+		scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
 	}
 	
 	fileprivate func updateImageConstraints() {
-		let verticalOffset = max(0, (view.bounds.height - imageView.frame.height)/2)
-		imageViewTopConstraint.constant = verticalOffset - scrollView.adjustedContentInset.top
-		scrollView.contentInset.bottom = -scrollView.adjustedContentInset.top
-		
 		let horizontalOffset = max(0, (view.bounds.width - imageView.frame.width)/2)
 		imageViewLeadingConstraint.constant = horizontalOffset
+		
+		let verticalOffset = max(0, (view.bounds.height - imageView.frame.height)/2)
+		imageViewTopConstraint.constant = verticalOffset
 		
 		view.layoutIfNeeded()
 	}
@@ -130,9 +138,9 @@ extension ImageViewerItemViewController {
 	}
 	
 	@IBAction fileprivate func doubleTapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
-//		if scrollView.zoomScale > scrollView.minimumZoomScale {
-//			scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
-//		} else {
+		if scrollView.zoomScale > scrollView.minimumZoomScale {
+			scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+		} else {
 			let scale = scrollView.zoomScale < 1 ? 1 : scrollView.minimumZoomScale
 			
 			if scale != scrollView.zoomScale {
@@ -143,6 +151,6 @@ extension ImageViewerItemViewController {
 				
 				scrollView.zoom(to: CGRect(origin: origin, size: size), animated: true)
 			}
-//		}
+		}
 	}
 }

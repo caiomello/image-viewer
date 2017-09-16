@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8bg-Uz-G68">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8bg-Uz-G68">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,10 +40,6 @@
         <scene sceneID="g09-1N-qL0">
             <objects>
                 <viewController storyboardIdentifier="ImageViewerItem" automaticallyAdjustsScrollViewInsets="NO" id="rJS-eg-LHd" customClass="ImageViewerItemViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qEX-9E-LIn"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lsc-SA-W5V"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="15q-KN-xDa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,22 +49,7 @@
                             </activityIndicatorView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-y3-tg4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyE-iU-lGf">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="375" placeholder="YES" id="1bc-H6-UMN"/>
-                                            <constraint firstAttribute="width" constant="375" placeholder="YES" id="BKu-JK-1ci"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="hyE-iU-lGf" firstAttribute="leading" secondItem="iRr-y3-tg4" secondAttribute="leading" id="H69-Ts-MY7"/>
-                                    <constraint firstAttribute="trailing" secondItem="hyE-iU-lGf" secondAttribute="trailing" id="Wif-Kw-Veg"/>
-                                    <constraint firstAttribute="bottom" secondItem="hyE-iU-lGf" secondAttribute="bottom" id="dqb-ft-Z43"/>
-                                    <constraint firstItem="hyE-iU-lGf" firstAttribute="top" secondItem="iRr-y3-tg4" secondAttribute="top" id="vJE-2K-WJE"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="rJS-eg-LHd" id="Nv2-Wo-WEf"/>
                                     <outletCollection property="gestureRecognizers" destination="m5b-NQ-ISf" appends="YES" id="8sD-b1-GXD"/>
@@ -80,18 +62,16 @@
                             <constraint firstAttribute="trailing" secondItem="iRr-y3-tg4" secondAttribute="trailing" id="4st-98-UPl"/>
                             <constraint firstItem="iRr-y3-tg4" firstAttribute="leading" secondItem="15q-KN-xDa" secondAttribute="leading" id="8lV-aZ-fHW"/>
                             <constraint firstAttribute="bottom" secondItem="iRr-y3-tg4" secondAttribute="bottom" id="CdI-gQ-BGk"/>
-                            <constraint firstItem="H2P-Ci-pUd" firstAttribute="centerX" secondItem="15q-KN-xDa" secondAttribute="centerX" id="eQn-Jd-SzK"/>
+                            <constraint firstItem="H2P-Ci-pUd" firstAttribute="centerX" secondItem="RIk-Tp-5Kl" secondAttribute="centerX" id="eQn-Jd-SzK"/>
                             <constraint firstItem="H2P-Ci-pUd" firstAttribute="centerY" secondItem="15q-KN-xDa" secondAttribute="centerY" id="h7y-SW-9fw"/>
                             <constraint firstItem="iRr-y3-tg4" firstAttribute="top" secondItem="15q-KN-xDa" secondAttribute="top" id="hLs-TR-Ls7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="RIk-Tp-5Kl"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="H2P-Ci-pUd" id="s02-03-9UZ"/>
                         <outlet property="doubleTapGestureRecognizer" destination="Qz4-a9-tEE" id="Kwx-c6-iHH"/>
-                        <outlet property="imageView" destination="hyE-iU-lGf" id="Ics-ci-nTh"/>
-                        <outlet property="imageViewLeadingConstraint" destination="H69-Ts-MY7" id="3Ao-X9-B91"/>
-                        <outlet property="imageViewTopConstraint" destination="vJE-2K-WJE" id="wb3-31-iBi"/>
                         <outlet property="scrollView" destination="iRr-y3-tg4" id="oqG-WI-UWo"/>
                         <outlet property="tapGestureRecognizer" destination="m5b-NQ-ISf" id="r9K-9S-o57"/>
                     </connections>
