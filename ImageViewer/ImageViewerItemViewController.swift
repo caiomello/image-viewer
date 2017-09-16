@@ -114,6 +114,7 @@ extension ImageViewerItemViewController {
 		let scale = min(widthScale, heightScale)
 		
 		scrollView.minimumZoomScale = scale
+		scrollView.maximumZoomScale = scale * 2
 		scrollView.setZoomScale(scale, animated: animated)
 		
 		scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
@@ -138,19 +139,15 @@ extension ImageViewerItemViewController {
 	}
 	
 	@IBAction fileprivate func doubleTapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
-		if scrollView.zoomScale > scrollView.minimumZoomScale {
-			scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
-		} else {
-			let scale = scrollView.zoomScale < 1 ? 1 : scrollView.minimumZoomScale
+		let scale = scrollView.zoomScale > scrollView.minimumZoomScale ? scrollView.minimumZoomScale : scrollView.maximumZoomScale
+		
+		if scale != scrollView.zoomScale {
+			let point = sender.location(in: imageView)
 			
-			if scale != scrollView.zoomScale {
-				let point = sender.location(in: imageView)
-				
-				let size = CGSize(width: view.bounds.width/scale, height: view.bounds.height/scale)
-				let origin = CGPoint(x: point.x - size.width/2, y: point.y - size.height/2)
-				
-				scrollView.zoom(to: CGRect(origin: origin, size: size), animated: true)
-			}
+			let size = CGSize(width: view.bounds.width/scale, height: view.bounds.height/scale)
+			let origin = CGPoint(x: point.x - size.width/2, y: point.y - size.height/2)
+			
+			scrollView.zoom(to: CGRect(origin: origin, size: size), animated: true)
 		}
 	}
 }
