@@ -37,8 +37,23 @@ extension ImageViewerItemViewController {
 		imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		scrollView.addSubview(imageView)
-		imageViewLeadingConstraint = NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: scrollView, attribute: .leading, multiplier: 1, constant: 0)
-		imageViewTopConstraint = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .top, multiplier: 1, constant: 0)
+
+		imageViewLeadingConstraint = NSLayoutConstraint(item: imageView!,
+                                                        attribute: .leading,
+                                                        relatedBy: .equal,
+                                                        toItem: scrollView,
+                                                        attribute: .leading,
+                                                        multiplier: 1,
+                                                        constant: 0)
+
+		imageViewTopConstraint = NSLayoutConstraint(item: imageView!,
+                                                    attribute: .top,
+                                                    relatedBy: .equal,
+                                                    toItem: scrollView,
+                                                    attribute: .top,
+                                                    multiplier: 1,
+                                                    constant: 0)
+
 		scrollView.addConstraints([imageViewLeadingConstraint, imageViewTopConstraint])
 		
 		tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)

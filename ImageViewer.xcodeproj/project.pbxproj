@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		250718071EDCD3670058B2F2 /* ImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250717FD1EDCD3670058B2F2 /* ImageViewer.framework */; };
-		2507180C1EDCD3670058B2F2 /* ImageViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2507180B1EDCD3670058B2F2 /* ImageViewerTests.swift */; };
 		25AD35E71EDCD3ED008654DB /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */; };
 		25AD35E81EDCD3ED008654DB /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E41EDCD3ED008654DB /* ImageViewer.swift */; };
 		25AD35E91EDCD3ED008654DB /* ImageViewerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AD35E51EDCD3ED008654DB /* ImageViewerItem.swift */; };
@@ -30,7 +29,6 @@
 		250717FD1EDCD3670058B2F2 /* ImageViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		250718011EDCD3670058B2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		250718061EDCD3670058B2F2 /* ImageViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2507180B1EDCD3670058B2F2 /* ImageViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerTests.swift; sourceTree = "<group>"; };
 		2507180D1EDCD3670058B2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25AD35E31EDCD3ED008654DB /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		25AD35E41EDCD3ED008654DB /* ImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 		2507180A1EDCD3670058B2F2 /* ImageViewerTests */ = {
 			isa = PBXGroup;
 			children = (
-				2507180B1EDCD3670058B2F2 /* ImageViewerTests.swift */,
 				2507180D1EDCD3670058B2F2 /* Info.plist */,
 			);
 			path = ImageViewerTests;
@@ -162,13 +159,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Caio Mello";
 				TargetAttributes = {
 					250717FC1EDCD3670058B2F2 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 7Q8BV53NMG;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					250718051EDCD3670058B2F2 = {
@@ -181,10 +178,11 @@
 			};
 			buildConfigurationList = 250717F71EDCD3670058B2F2 /* Build configuration list for PBXProject "ImageViewer" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 250717F31EDCD3670058B2F2;
 			productRefGroup = 250717FE1EDCD3670058B2F2 /* Products */;
@@ -231,7 +229,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2507180C1EDCD3670058B2F2 /* ImageViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +247,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -296,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -312,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -352,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -380,8 +379,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -401,8 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = caiomello.ImageViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
