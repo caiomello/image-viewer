@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xGX-Li-dGc">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+    </dependencies>
+    <scenes>
+        <!--Image Viewer Page View Controller-->
+        <scene sceneID="5lW-Jo-txT">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewerPageViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4Ux-Qu-Pra">
+                        <rightBarButtonItems>
+                            <barButtonItem style="done" systemItem="done" id="YOB-Ua-Zin">
+                                <connections>
+                                    <action selector="doneBarButtonAction:" destination="xGX-Li-dGc" id="cOK-gb-1gi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="action" id="RhD-sE-XWU">
+                                <connections>
+                                    <action selector="shareBarButtonAction:" destination="xGX-Li-dGc" id="bMy-6v-ftT"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="shareBarButton" destination="RhD-sE-XWU" id="F1f-HM-xoY"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBb-bi-Rww" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="16"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,54 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8bg-Uz-G68">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rJS-eg-LHd">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Image Viewer Page View Controller-->
-        <scene sceneID="5lW-Jo-txT">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" pageSpacing="30" navigationOrientation="horizontal" spineLocation="none" id="xGX-Li-dGc" customClass="ImageViewerPageViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4Ux-Qu-Pra">
-                        <rightBarButtonItems>
-                            <barButtonItem style="done" systemItem="done" id="YOB-Ua-Zin">
-                                <connections>
-                                    <action selector="doneBarButtonAction:" destination="xGX-Li-dGc" id="cOK-gb-1gi"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem enabled="NO" systemItem="action" id="RhD-sE-XWU">
-                                <connections>
-                                    <action selector="shareBarButtonAction:" destination="xGX-Li-dGc" id="bMy-6v-ftT"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="shareBarButton" destination="RhD-sE-XWU" id="F1f-HM-xoY"/>
-                    </connections>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QBb-bi-Rww" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="689" y="16"/>
-        </scene>
         <!--Image Viewer Item View Controller-->
         <scene sceneID="g09-1N-qL0">
             <objects>
                 <viewController storyboardIdentifier="ImageViewerItem" automaticallyAdjustsScrollViewInsets="NO" id="rJS-eg-LHd" customClass="ImageViewerItemViewController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="15q-KN-xDa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-Ci-pUd">
-                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="396" width="20" height="20"/>
                             </activityIndicatorView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-y3-tg4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="rJS-eg-LHd" id="Nv2-Wo-WEf"/>
@@ -89,25 +60,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1471" y="16"/>
-        </scene>
-        <!--Image Viewer-->
-        <scene sceneID="3ij-BY-5lu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bg-Uz-G68" customClass="ImageViewer" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="P9S-g1-O0h">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xGX-Li-dGc" kind="relationship" relationship="rootViewController" id="NuJ-qb-155"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NA6-ep-Sk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-87.200000000000003" y="15.742128935532236"/>
         </scene>
     </scenes>
 </document>

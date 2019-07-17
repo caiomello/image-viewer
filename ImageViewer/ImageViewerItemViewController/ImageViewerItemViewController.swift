@@ -12,33 +12,41 @@ protocol ImageViewerItemViewControllerDelegate {
 	func imageViewerItemViewController(controller: ImageViewerItemViewController, didSetImage image: UIImage?)
 }
 
-class ImageViewerItemViewController: UIViewController {
-	@IBOutlet fileprivate var activityIndicatorView: UIActivityIndicatorView!
-	@IBOutlet fileprivate var scrollView: UIScrollView!
+final class ImageViewerItemViewController: UIViewController {
+    private let item: ImageViewerItem
+    private let delegate: ImageViewerItemViewControllerDelegate
+
+    init?(coder: NSCoder, item: ImageViewerItem, delegate: ImageViewerItemViewControllerDelegate) {
+        self.item = item
+        self.delegate = delegate
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
+	@IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+	@IBOutlet private var scrollView: UIScrollView!
 	
-	var imageView: UIImageView!
-	fileprivate var imageViewLeadingConstraint: NSLayoutConstraint!
-	fileprivate var imageViewTopConstraint: NSLayoutConstraint!
+	private var imageView = UIImageView()
+	private var imageViewLeadingConstraint: NSLayoutConstraint!
+	private var imageViewTopConstraint: NSLayoutConstraint!
 	
-	@IBOutlet fileprivate var tapGestureRecognizer: UITapGestureRecognizer!
-	@IBOutlet fileprivate var doubleTapGestureRecognizer: UITapGestureRecognizer!
-	
-	var item: ImageViewerItem!
-	var index = 0
-	var delegate: ImageViewerItemViewControllerDelegate!
+	@IBOutlet private var tapGestureRecognizer: UITapGestureRecognizer!
+	@IBOutlet private var doubleTapGestureRecognizer: UITapGestureRecognizer!
 }
 
-// MARK: - View
+// MARK: - Lifecycle
 
 extension ImageViewerItemViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		imageView = UIImageView()
+
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		scrollView.addSubview(imageView)
 
-		imageViewLeadingConstraint = NSLayoutConstraint(item: imageView!,
+		imageViewLeadingConstraint = NSLayoutConstraint(item: imageView,
                                                         attribute: .leading,
                                                         relatedBy: .equal,
                                                         toItem: scrollView,
@@ -46,7 +54,7 @@ extension ImageViewerItemViewController {
                                                         multiplier: 1,
                                                         constant: 0)
 
-		imageViewTopConstraint = NSLayoutConstraint(item: imageView!,
+		imageViewTopConstraint = NSLayoutConstraint(item: imageView,
                                                     attribute: .top,
                                                     relatedBy: .equal,
                                                     toItem: scrollView,
@@ -106,7 +114,7 @@ extension ImageViewerItemViewController {
 	}
 }
 
-// MARK: - ScrollView
+// MARK: - UIScrollViewDelegate
 
 extension ImageViewerItemViewController: UIScrollViewDelegate {
 	func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -121,7 +129,7 @@ extension ImageViewerItemViewController: UIScrollViewDelegate {
 // MARK: - Helpers
 
 extension ImageViewerItemViewController {
-	fileprivate func updateZoomScale(animated: Bool) {
+	private func updateZoomScale(animated: Bool) {
 		guard let image = imageView.image else { return }
 		
 		let widthScale = view.bounds.width/image.size.width
@@ -135,7 +143,7 @@ extension ImageViewerItemViewController {
 		scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
 	}
 	
-	fileprivate func updateImageConstraints() {
+	private func updateImageConstraints() {
 		let horizontalOffset = max(0, (view.bounds.width - imageView.frame.width)/2)
 		imageViewLeadingConstraint.constant = horizontalOffset
 		
@@ -146,14 +154,14 @@ extension ImageViewerItemViewController {
 	}
 }
 
-// MARK: - Actions
+// MARK: - Controls
 
 extension ImageViewerItemViewController {
-	@IBAction fileprivate func tapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
+	@IBAction private func tapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
 		dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction fileprivate func doubleTapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
+	@IBAction private func doubleTapGestureRecognizerAction(_ sender: UITapGestureRecognizer) {
 		let scale = scrollView.zoomScale > scrollView.minimumZoomScale ? scrollView.minimumZoomScale : scrollView.maximumZoomScale
 		
 		if scale != scrollView.zoomScale {
