@@ -22,44 +22,44 @@ final class ImageViewerPageViewController: UIPageViewController {
         fatalError()
     }
 
-	@IBOutlet private var shareBarButton: UIBarButtonItem!
+    @IBOutlet private var shareBarButton: UIBarButtonItem!
 
-	private var currentViewController: ImageViewerItemViewController?
+    private var currentViewController: ImageViewerItemViewController?
     private var currentImage: UIImage?
 }
 
 // MARK: - Lifecycle
 
 extension ImageViewerPageViewController {
-	override public func viewDidLoad() {
-		super.viewDidLoad()
-		
-		dataSource = self
-		delegate = self
-		
-		setViewControllers([imageViewerItemViewController(withIndex: index)], direction: .forward, animated: false, completion: nil)
-		currentViewController = viewControllers?.first as? ImageViewerItemViewController
-	}
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+
+        dataSource = self
+        delegate = self
+
+        setViewControllers([imageViewerItemViewController(withIndex: index)], direction: .forward, animated: false, completion: nil)
+        currentViewController = viewControllers?.first as? ImageViewerItemViewController
+    }
 }
 
 // MARK: - UIPageViewControllerDataSource
 
 extension ImageViewerPageViewController: UIPageViewControllerDataSource {
-	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if index > 0 {
             return imageViewerItemViewController(withIndex: index - 1)
         }
 
-		return nil
-	}
+        return nil
+    }
 
-	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if index < (items.count - 1) {
             return imageViewerItemViewController(withIndex: index + 1)
         }
 
         return nil
-	}
+    }
 }
 
 // MARK: - UIPageViewControllerDelegate
@@ -71,43 +71,49 @@ extension ImageViewerPageViewController: UIPageViewControllerDelegate {
             shareBarButton.isEnabled = currentImage != nil
         }
     }
+
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        if let pageItemController = pendingViewControllers.first as? ImageViewerItemViewController {
+            index = pageItemController.index
+        }
+    }
 }
 
 // MARK: - Helpers
 
 extension ImageViewerPageViewController {
-	private func imageViewerItemViewController(withIndex index: Int) -> ImageViewerItemViewController {
+    private func imageViewerItemViewController(withIndex index: Int) -> ImageViewerItemViewController {
         let storyboard = UIStoryboard(name: "\(ImageViewerItemViewController.self)", bundle: Bundle(for: ImageViewer.self))
 
         let itemViewController = storyboard.instantiateInitialViewController { coder -> ImageViewerItemViewController? in
-            ImageViewerItemViewController(coder: coder, item: self.items[index], delegate: self)
+            ImageViewerItemViewController(coder: coder, index: index, item: self.items[index], delegate: self)
         }
 
         return itemViewController!
-	}
+    }
 }
 
 // MARK: - ImageViewerItemViewController
 
 extension ImageViewerPageViewController: ImageViewerItemViewControllerDelegate {
-	func imageViewerItemViewController(controller: ImageViewerItemViewController, didSetImage image: UIImage?) {
+    func imageViewerItemViewController(controller: ImageViewerItemViewController, didSetImage image: UIImage?) {
         currentImage = image
-		shareBarButton.isEnabled = image != nil
-	}
+        shareBarButton.isEnabled = image != nil
+    }
 }
 
 // MARK: - Controls
 
 extension ImageViewerPageViewController {
-	@IBAction private func shareBarButtonAction(_ sender: UIBarButtonItem) {
-		if let image = currentImage {
-			let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-			activityViewController.popoverPresentationController?.barButtonItem = sender
-			present(activityViewController, animated: true, completion: nil)
-		}
-	}
-	
-	@IBAction private func doneBarButtonAction(_ sender: UIBarButtonItem) {
-		dismiss(animated: true, completion: nil)
-	}
+    @IBAction private func shareBarButtonAction(_ sender: UIBarButtonItem) {
+        if let image = currentImage {
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.barButtonItem = sender
+            present(activityViewController, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction private func doneBarButtonAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }
