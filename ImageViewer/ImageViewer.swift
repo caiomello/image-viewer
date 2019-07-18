@@ -8,17 +8,12 @@
 
 import UIKit
 
-public protocol ImageViewerDataSource {
-	func numberOfItems() -> Int
-	func itemAtIndex(_ index: Int) -> ImageViewerItem
-}
-
 public class ImageViewer: UIViewController {
-	public class func instantiate(dataSource: ImageViewerDataSource, index: Int) -> UIViewController {
+	public class func instantiate(items: [ImageViewerItem], index: Int) -> UIViewController {
         let storyboard = UIStoryboard(name: "\(ImageViewerPageViewController.self)", bundle: Bundle(for: ImageViewer.self))
 
         let pageViewController = storyboard.instantiateInitialViewController { coder -> ImageViewerPageViewController? in
-            ImageViewerPageViewController(coder: coder, dataSource: dataSource, index: index)
+            ImageViewerPageViewController(coder: coder, items: items, index: index)
         }
 
         let navigationController = UINavigationController(rootViewController: pageViewController!)

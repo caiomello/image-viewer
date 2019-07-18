@@ -9,11 +9,11 @@
 import UIKit
 
 final class ImageViewerPageViewController: UIPageViewController {
-    private let imageViewerDataSource: ImageViewerDataSource
+    private let items: [ImageViewerItem]
     private var index: Int
 
-    init?(coder: NSCoder, dataSource: ImageViewerDataSource, index: Int) {
-        self.imageViewerDataSource = dataSource
+    init?(coder: NSCoder, items: [ImageViewerItem], index: Int) {
+        self.items = items
         self.index = index
         super.init(coder: coder)
     }
@@ -54,7 +54,7 @@ extension ImageViewerPageViewController: UIPageViewControllerDataSource {
 	}
 
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if index < (imageViewerDataSource.numberOfItems() - 1) {
+        if index < (items.count - 1) {
             return imageViewerItemViewController(withIndex: index + 1)
         }
 
@@ -80,7 +80,7 @@ extension ImageViewerPageViewController {
         let storyboard = UIStoryboard(name: "\(ImageViewerItemViewController.self)", bundle: Bundle(for: ImageViewer.self))
 
         let itemViewController = storyboard.instantiateInitialViewController { coder -> ImageViewerItemViewController? in
-            ImageViewerItemViewController(coder: coder, item: self.imageViewerDataSource.itemAtIndex(index), delegate: self)
+            ImageViewerItemViewController(coder: coder, item: self.items[index], delegate: self)
         }
 
         return itemViewController!
