@@ -71,17 +71,15 @@ extension ImageViewerItemViewController {
 
         activityIndicatorView.startAnimating()
 
-        item.downloadImage({ (image) in
-            DispatchQueue.main.async {
-                self.activityIndicatorView.stopAnimating()
+        item.setImage(for: imageView) {
+            self.activityIndicatorView.stopAnimating()
 
-                self.imageView.image = image
-                self.delegate.imageViewerItemViewController(controller: self, didSetImage: image)
+            self.delegate.imageViewerItemViewController(controller: self,
+                                                        didSetImage: imageView.image)
 
-                self.updateImageConstraints()
-                self.updateZoomScale(animated: false)
-            }
-        })
+            self.updateImageConstraints()
+            self.updateZoomScale(animated: false)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

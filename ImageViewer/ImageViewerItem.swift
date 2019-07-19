@@ -9,13 +9,13 @@
 import UIKit
 
 public struct ImageViewerItem {
-    private let downloadBlock: ((_ completion: @escaping (UIImage?) -> Void) -> Void)?
+    private let setImageBlock: (_ imageView: UIImageView, _ completion: () -> Void) -> Void
 
-    public init(downloadBlock: @escaping (_ completion: @escaping (UIImage?) -> Void) -> Void) {
-        self.downloadBlock = downloadBlock
+    public init(setImageBlock: @escaping (_ imageView: UIImageView, _ completion: () -> Void) -> Void) {
+        self.setImageBlock = setImageBlock
     }
 
-    func downloadImage(_ completion: @escaping (UIImage?) -> Void) {
-        downloadBlock?(completion)
+    func setImage(for imageView: UIImageView, completion: () -> Void) {
+        setImageBlock(imageView, completion)
     }
 }
