@@ -9,13 +9,13 @@
 import UIKit
 
 public struct ImageViewerItem {
-    private let setImageBlock: (_ imageView: UIImageView, _ completion: () -> Void) -> Void
+    private let setImageBlock: (_ imageView: UIImageView, _ completion: @escaping () -> Void) -> Void
 
-    public init(setImageBlock: @escaping (_ imageView: UIImageView, _ completion: () -> Void) -> Void) {
+    public init(setImageBlock: @escaping (_ imageView: UIImageView, _ completion: @escaping () -> Void) -> Void) {
         self.setImageBlock = setImageBlock
     }
 
-    func setImage(for imageView: UIImageView, completion: () -> Void) {
+    func setImage(for imageView: UIImageView, completion: @escaping () -> Void) {
         setImageBlock(imageView, completion)
     }
 }

@@ -75,7 +75,7 @@ extension ImageViewerItemViewController {
             self.activityIndicatorView.stopAnimating()
 
             self.delegate.imageViewerItemViewController(controller: self,
-                                                        didSetImage: imageView.image)
+                                                        didSetImage: self.imageView.image)
 
             self.updateImageConstraints()
             self.updateZoomScale(animated: false)
