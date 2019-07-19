@@ -131,7 +131,7 @@ extension ImageViewerItemViewController {
         let scale = min(widthScale, heightScale)
 
         scrollView.minimumZoomScale = scale
-        scrollView.maximumZoomScale = scale * 2
+        scrollView.maximumZoomScale = scale * 3
         scrollView.setZoomScale(scale, animated: animated)
 
         scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
