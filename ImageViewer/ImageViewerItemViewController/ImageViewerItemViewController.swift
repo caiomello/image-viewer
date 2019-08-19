@@ -135,6 +135,8 @@ extension ImageViewerItemViewController {
         scrollView.setZoomScale(scale, animated: animated)
 
         scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
+
+        scrollView.isDirectionalLockEnabled = scrollView.zoomScale == scrollView.minimumZoomScale
     }
 
     private func updateImageConstraints() {
