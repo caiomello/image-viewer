@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rJS-eg-LHd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rJS-eg-LHd">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,6 @@
                                 <connections>
                                     <outlet property="delegate" destination="rJS-eg-LHd" id="Nv2-Wo-WEf"/>
                                     <outletCollection property="gestureRecognizers" destination="Qz4-a9-tEE" appends="YES" id="I7X-PW-nSW"/>
-                                    <outletCollection property="gestureRecognizers" destination="xb8-uE-hvr" appends="YES" id="Oe5-oh-X9x"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -44,7 +43,6 @@
                         <outlet property="activityIndicatorView" destination="H2P-Ci-pUd" id="s02-03-9UZ"/>
                         <outlet property="doubleTapGestureRecognizer" destination="Qz4-a9-tEE" id="Kwx-c6-iHH"/>
                         <outlet property="scrollView" destination="iRr-y3-tg4" id="oqG-WI-UWo"/>
-                        <outlet property="swipeGestureRecognizer" destination="xb8-uE-hvr" id="xaP-bB-0B7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYh-ef-j1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,11 +51,6 @@
                         <action selector="doubleTapGestureRecognizerAction:" destination="rJS-eg-LHd" id="OdN-Al-jnT"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="xb8-uE-hvr">
-                    <connections>
-                        <action selector="swipeGestureRecognizerAction:" destination="rJS-eg-LHd" id="FA9-i4-DUp"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1471" y="16"/>
         </scene>

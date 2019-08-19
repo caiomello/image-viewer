@@ -36,7 +36,6 @@ final class ImageViewerItemViewController: UIViewController {
     private var imageViewTopConstraint: NSLayoutConstraint!
 
     @IBOutlet private var doubleTapGestureRecognizer: UITapGestureRecognizer!
-    @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
 }
 
 // MARK: - Lifecycle
@@ -118,6 +117,12 @@ extension ImageViewerItemViewController: UIScrollViewDelegate {
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateImageConstraints()
     }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y < -128 {
+            dismiss(animated: true)
+        }
+    }
 }
 
 // MARK: - Helpers
@@ -135,8 +140,6 @@ extension ImageViewerItemViewController {
         scrollView.setZoomScale(scale, animated: animated)
 
         scrollView.contentInset = UIEdgeInsets(top: -scrollView.safeAreaInsets.top, left: -scrollView.safeAreaInsets.left, bottom: -scrollView.safeAreaInsets.bottom, right: -scrollView.safeAreaInsets.right)
-
-        scrollView.isDirectionalLockEnabled = scrollView.zoomScale == scrollView.minimumZoomScale
     }
 
     private func updateImageConstraints() {
@@ -164,9 +167,5 @@ extension ImageViewerItemViewController {
 
             scrollView.zoom(to: CGRect(origin: origin, size: size), animated: true)
         }
-    }
-
-    @IBAction private func swipeGestureRecognizerAction(_ sender: UISwipeGestureRecognizer) {
-        dismiss(animated: true)
     }
 }
