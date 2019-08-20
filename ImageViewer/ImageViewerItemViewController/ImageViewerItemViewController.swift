@@ -119,7 +119,7 @@ extension ImageViewerItemViewController: UIScrollViewDelegate {
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y < -128 {
+        if scrollView.contentOffset.y < -50 {
             dismiss(animated: true)
         }
     }
