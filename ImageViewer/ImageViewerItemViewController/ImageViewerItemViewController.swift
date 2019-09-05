@@ -12,6 +12,8 @@ protocol ImageViewerItemViewControllerDelegate {
     func imageViewerItemViewController(controller: ImageViewerItemViewController, didSetImage image: UIImage?)
 }
 
+private let dismissThreshold: CGFloat = -50
+
 final class ImageViewerItemViewController: UIViewController {
     let index: Int // Necessary to keep track of index in UIPageViewController
     private let item: ImageViewerItem
@@ -36,6 +38,9 @@ final class ImageViewerItemViewController: UIViewController {
     private var imageViewTopConstraint: NSLayoutConstraint!
 
     @IBOutlet private var doubleTapGestureRecognizer: UITapGestureRecognizer!
+
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    private var shouldGenerateFeedback = false
 }
 
 // MARK: - Lifecycle
@@ -118,8 +123,27 @@ extension ImageViewerItemViewController: UIScrollViewDelegate {
         updateImageConstraints()
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isDragging, scrollView.isZooming == false else { return }
+
+        let feedbackRange = dismissThreshold - 30...dismissThreshold
+
+        let inRange = feedbackRange.contains(scrollView.contentOffset.y)
+
+        if inRange {
+            if shouldGenerateFeedback {
+                feedbackGenerator.impactOccurred()
+                shouldGenerateFeedback = false
+            }
+        } else {
+            shouldGenerateFeedback = true
+        }
+    }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y < -50 {
+        shouldGenerateFeedback = false
+
+        if scrollView.contentOffset.y < dismissThreshold {
             dismiss(animated: true)
         }
     }
