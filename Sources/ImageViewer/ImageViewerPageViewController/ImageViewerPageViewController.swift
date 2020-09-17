@@ -83,7 +83,7 @@ extension ImageViewerPageViewController: UIPageViewControllerDelegate {
 
 extension ImageViewerPageViewController {
     private func imageViewerItemViewController(withIndex index: Int) -> ImageViewerItemViewController {
-        let storyboard = UIStoryboard(name: "\(ImageViewerItemViewController.self)", bundle: Bundle(for: ImageViewer.self))
+        let storyboard = UIStoryboard(name: "\(ImageViewerItemViewController.self)", bundle: Bundle.module)
 
         let itemViewController = storyboard.instantiateInitialViewController { coder -> ImageViewerItemViewController? in
             ImageViewerItemViewController(coder: coder, index: index, item: self.items[index], delegate: self)
