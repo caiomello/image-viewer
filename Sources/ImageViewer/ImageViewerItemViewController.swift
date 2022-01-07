@@ -70,7 +70,7 @@ extension ImageViewerItemViewController {
 
         scrollView.addConstraints([imageViewLeadingConstraint, imageViewTopConstraint])
 
-        navigationController?.hidesBarsOnTap = true
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.barHideOnTapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
 
         activityIndicatorView.startAnimating()
